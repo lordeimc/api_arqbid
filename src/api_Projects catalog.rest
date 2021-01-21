@@ -1,63 +1,46 @@
 // ######### PROJECTS REST API #####################################
 // ###### LIST ALL PROJECTS
 ###
-GET http://localhost:4001/api/projects
+GET http://localhost:4001/api/projects_catalog
 
 // ###### CREATE A NEW PROJECT
 ###
-POST http://localhost:4001/api/projects
+POST http://localhost:4001/api/projects_catalog
 Content-Type: application/json
 
-{
-    "id_project": 22,
-    "id_project_type": 3,
-    "id_project_client": 3,
-    "id_project_contractor": 2,
-    "project_name": "BARDA PERIMETRAL",
-    "project_registration": "2020/12/12",
-    "project_start": "2020/12/12",
-    "project_end": "2020/12/12",
-    "project_code": "ARQBID-006-04-20-Barda Perimetral-AACC",
-    "project_manager": "Carlos Camp",
-    "project_details": "Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500 m2",
-    "project_active": 1,
-    "project_status": 1,
-    "client_name": "Alberto A. Camp Castillo",
-    "project_location": "https://www.google.com.mx/maps/@25.6708704,-100.2265044,20z",
-    "contractor_name": "Carlos Eduardo Camp Castillo",
-    "advance_payment": "0.00",
-    "project_budget": "450000"
+  {
+    "id": null,
+    "id_project_type": null,
+    "project_name": "Proyecto Casa Habitacion 1 Piso",
+    "project_duration": 30,
+    "project_code": "ARQBID-001-CASAHAB1",
+    "project_manager": " ",
+    "project_details": "Proyecto de Casa Habitacion de 1 Piso 3 Recamaras 2 Baños",
+    "projects_status": 1,
+    "project_registration": "2020/11/27"
   }
 
 // ###### SELECT ONE PROJECT BY ID
 ###
-GET http://localhost:4001/api/projects/22
+GET http://localhost:4001/api/projects_catalog/2
 
 // ###### EDIT PROJECT BY ID
 ###
-PUT http://localhost:4001/api/projects/105
+PUT http://localhost:4001/api/projects_catalog/105
 Content-Type: application/json
 
-{
-    "id_project_type": 3,
-    "id_project_client": 3,
-    "id_project_contractor": 2,
-    "project_name": "BARDA PERIMETRAL",
-    "project_registration": "2020/12/12",
-    "project_start": "2020/12/12",
-    "project_end": "2020/12/12",
-    "project_code": "ARQBID-006-04-20-Barda Perimetral-AACC",
-    "project_manager": "Carlos Camp",
-    "project_details": "Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500 m2",
-    "project_active": 1,
-    "project_status": 1,
-    "client_name": "Alberto A. Camp Castillo",
-    "project_location": "https://www.google.com.mx/maps/@25.6708704,-100.2265044,20z",
-    "contractor_name": "Carlos Eduardo Camp Castillo",
-    "advance_payment": "35600",
-    "project_budget": "470000"
+  {
+    "id": null,
+    "id_project_type": null,
+    "project_name": "Proyecto Casa Habitacion 1 Piso",
+    "project_duration": 30,
+    "project_code": "ARQBID-001-CASAHAB1",
+    "project_manager": " ",
+    "project_details": "Proyecto de Casa Habitacion de 1 Piso 3 Recamaras 2 Baños",
+    "projects_status": 1,
+    "project_registration": "2020/11/27"
   }
 
 // ###### DELETE PROJECT BY ID
 ###
-DELETE http://localhost:4001/api/projects/3
+DELETE http://localhost:4001/api/projects_catalog/5

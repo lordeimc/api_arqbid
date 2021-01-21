@@ -1,0 +1,64 @@
+// ######### serviceS REST API #####################################
+// ###### LIST ALL serviceS
+###
+GET http://localhost:4001/api/services
+
+
+// ###### CREATE A NEW service
+###
+POST http://localhost:4001/api/services
+Content-Type: application/json
+
+{
+    "id_service": 22,
+    "id_service_type": 3,
+    "id_service_client": 3,
+    "id_service_contractor": 2,
+    "service_name": "BARDA PERIMETRAL",
+    "service_registration": "2020/12/12",
+    "service_start": "2020/12/12",
+    "service_end": "2020/12/12",
+    "service_code": "ARQBID-006-04-20-Barda Perimetral-AACC",
+    "service_manager": "Carlos Camp",
+    "service_details": "Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500 m2",
+    "service_active": 1,
+    "service_status": 1,
+    "client_name": "Alberto A. Camp Castillo",
+    "service_location": "https://www.google.com.mx/maps/@25.6708704,-100.2265044,20z",
+    "contractor_name": "Carlos Eduardo Camp Castillo",
+    "advance_payment": "0.00",
+    "service_budget": "450000"
+  }
+
+// ###### SELECT ONE service BY ID
+###
+GET http://localhost:4001/api/services/22
+
+// ###### EDIT service BY ID
+###
+PUT http://localhost:4001/api/services/105
+Content-Type: application/json
+
+{
+    "id_service_type": 3,
+    "id_service_client": 3,
+    "id_service_contractor": 2,
+    "service_name": "BARDA PERIMETRAL",
+    "service_registration": "2020/12/12",
+    "service_start": "2020/12/12",
+    "service_end": "2020/12/12",
+    "service_code": "ARQBID-006-04-20-Barda Perimetral-AACC",
+    "service_manager": "Carlos Camp",
+    "service_details": "Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500 m2",
+    "service_active": 1,
+    "service_status": 1,
+    "client_name": "Alberto A. Camp Castillo",
+    "service_location": "https://www.google.com.mx/maps/@25.6708704,-100.2265044,20z",
+    "contractor_name": "Carlos Eduardo Camp Castillo",
+    "advance_payment": "35600",
+    "service_budget": "470000"
+  }
+
+// ###### DELETE service BY ID
+###
+DELETE http://localhost:4001/api/services/3

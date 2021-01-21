@@ -1,14 +1,14 @@
 const pool = require('../database');
 
-const projectCtrl = {}
+const productCtrl = {}
 
-projectCtrl.getProjects = async (req, res) => {
+productCtrl.getProjects = async (req, res) => {
     const projects = await pool.query('SELECT * FROM veyron_arqbid.t_v_projects_active WHERE project_active = true;');
     res.send(projects);
     console.log(projects);
 };
 
-projectCtrl.createProject = async(req, res) => {
+productCtrl.createProject = async(req, res) => {
     const {
         id_project_type,
         id_project_client,
@@ -59,14 +59,14 @@ projectCtrl.createProject = async(req, res) => {
     //console.log(req.body);
 };
 
-projectCtrl.getProject = async (req, res) => {
+productCtrl.getProject = async (req, res) => {
     const { id } = req.params;
     const projects = await pool.query('SELECT * FROM veyron_arqbid.t_v_projects_active WHERE project_active = true AND id_project = ?;', [id]);
     res.send(projects);
     console.log(projects);
 };
 
-projectCtrl.editProject = async(req, res) => {
+productCtrl.editProject = async(req, res) => {
     const { id } = req.params;
 
     const {
@@ -118,11 +118,11 @@ projectCtrl.editProject = async(req, res) => {
     //console.log(req.body);
 };
 
-projectCtrl.deleteProject = async (req, res) => {
+productCtrl.deleteProject = async (req, res) => {
     const { id } = req.params;
     //DELETE FROM veyron_arqbid.t_projects WHERE id_project = ?;
     await pool.query("UPDATE `veyron_arqbid`.`t_projects` SET `project_active` = '0' WHERE `id_project` = ?;", [id]);
     //console.log('Product Updated; '+id);
 };
 
-module.exports =  projectCtrl;
+module.exports =  productCtrl;
