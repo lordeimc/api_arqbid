@@ -1,0 +1,63 @@
+// ######### PROJECTS REST API #####################################
+// ###### LIST ALL PROJECTS
+###
+GET http://localhost:4001/api/projects
+
+// ###### CREATE A NEW PROJECT
+###
+POST http://localhost:4001/api/projects
+Content-Type: application/json
+
+{
+    "id_project": 22,
+    "id_project_type": 3,
+    "id_project_client": 3,
+    "id_project_contractor": 2,
+    "project_name": "BARDA PERIMETRAL",
+    "project_registration": "2020/12/12",
+    "project_start": "2020/12/12",
+    "project_end": "2020/12/12",
+    "project_code": "ARQBID-006-04-20-Barda Perimetral-AACC",
+    "project_manager": "Carlos Camp",
+    "project_details": "Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500 m2",
+    "project_active": 1,
+    "project_status": 1,
+    "client_name": "Alberto A. Camp Castillo",
+    "project_location": "https://www.google.com.mx/maps/@25.6708704,-100.2265044,20z",
+    "contractor_name": "Carlos Eduardo Camp Castillo",
+    "advance_payment": "0.00",
+    "project_budget": "450000"
+  }
+
+// ###### SELECT ONE PROJECT BY ID
+###
+GET http://localhost:4001/api/projects/22
+
+// ###### EDIT PROJECT BY ID
+###
+PUT http://localhost:4001/api/projects/105
+Content-Type: application/json
+
+{
+    "id_project_type": 3,
+    "id_project_client": 3,
+    "id_project_contractor": 2,
+    "project_name": "BARDA PERIMETRAL",
+    "project_registration": "2020/12/12",
+    "project_start": "2020/12/12",
+    "project_end": "2020/12/12",
+    "project_code": "ARQBID-006-04-20-Barda Perimetral-AACC",
+    "project_manager": "Carlos Camp",
+    "project_details": "Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500 m2",
+    "project_active": 1,
+    "project_status": 1,
+    "client_name": "Alberto A. Camp Castillo",
+    "project_location": "https://www.google.com.mx/maps/@25.6708704,-100.2265044,20z",
+    "contractor_name": "Carlos Eduardo Camp Castillo",
+    "advance_payment": "35600",
+    "project_budget": "470000"
+  }
+
+// ###### DELETE PROJECT BY ID
+###
+DELETE http://localhost:4001/api/projects/3
