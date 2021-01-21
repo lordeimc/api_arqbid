@@ -3,6 +3,9 @@
 ###
 GET http://localhost:4001/api/projects
 
+###
+GET https://veyron-api-v1.herokuapp.com/api/projects
+
 // ###### CREATE A NEW PROJECT
 ###
 POST http://localhost:4001/api/projects
