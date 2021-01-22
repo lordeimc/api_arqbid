@@ -15,7 +15,7 @@ Content-Type: application/json
     "project_duration": 30,
     "project_code": "ARQBID-001-CASAHAB1",
     "project_manager": " ",
-    "project_details": "Proyecto de Casa Habitacion de 1 Piso 3 Recamaras 2 Baños",
+    "project_details": "Proyecto de Casa Habitacion de 1 Piso 3 Recamaras 2 Baños.",
     "projects_status": 1,
     "project_registration": "2020/11/27"
   }
@@ -26,17 +26,17 @@ GET http://localhost:4001/api/projects_catalog/2
 
 // ###### EDIT PROJECT BY ID
 ###
-PUT http://localhost:4001/api/projects_catalog/105
+PUT http://localhost:4001/api/projects_catalog/9
 Content-Type: application/json
 
   {
     "id": null,
     "id_project_type": null,
-    "project_name": "Proyecto Casa Habitacion 1 Piso",
+    "project_name": "Proyecto Casa Habitacion 1 Piso.",
     "project_duration": 30,
     "project_code": "ARQBID-001-CASAHAB1",
     "project_manager": " ",
-    "project_details": "Proyecto de Casa Habitacion de 1 Piso 3 Recamaras 2 Baños",
+    "project_details": "Proyecto de Casa Habitacion de 1 Piso 3 Recamaras 2 Baños.",
     "projects_status": 1,
     "project_registration": "2020/11/27"
   }
