@@ -139,7 +139,7 @@ taskCtrl.deleteTask = async (req, res) => {
     //console.log('Product Updated; '+id);
 };
 
-
+/* 
 var cronJob = require('node-cron');
 cronJob.schedule('0 0 17 * * *', async function () {
     var Today = new Date();
@@ -212,6 +212,6 @@ cronJobToday.schedule('0 0 8 * * *', async function () {
             .done();
 
     });
-}, { scheduled: true });
+}, { scheduled: true }); */
 
 module.exports = taskCtrl;
