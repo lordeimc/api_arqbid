@@ -2,126 +2,126 @@ const pool = require('../database');
 
 const productCtrl = {}
 
-productCtrl.getProjects = async (req, res) => {
-    const projects = await pool.query('SELECT * FROM veyron_arqbid.t_v_projects_active WHERE project_active = true;');
-    res.send(projects);
-    console.log(projects);
+productCtrl.getUsers = async (req, res) => {
+    const Users = await pool.query('SELECT * FROM veyron_arqbid.t_v_Users_active WHERE User_active = true;');
+    res.send(Users);
+    console.log(Users);
 };
 
-productCtrl.createProject = async(req, res) => {
+productCtrl.createUser = async(req, res) => {
     const {
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
+        id_User_type,
+        id_User_client,
+        id_User_contractor,
+        User_name,
+        User_registration,
+        User_start,
+        User_end,
+        User_code,
+        User_manager,
+        User_details,
+        User_active,
+        User_status,
+        User_budget,
         client_name,
-        project_location,
+        User_location,
         advance_payment,
         contractor_name,
-        project_area,
-        project_type_d} = req.body;
+        User_area,
+        User_type_d} = req.body;
     
-    const newProject = {                 
-        id_project:null,
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
+    const newUser = {                 
+        id_User:null,
+        id_User_type,
+        id_User_client,
+        id_User_contractor,
+        User_name,
+        User_registration,
+        User_start,
+        User_end,
+        User_code,
+        User_manager,
+        User_details,
+        User_active,
+        User_status,
+        User_budget,
         client_name,
-        project_location,
+        User_location,
         advance_payment,
         contractor_name,
-        project_area,
-        project_type_d          
+        User_area,
+        User_type_d          
     };
 
-    await pool.query('INSERT INTO t_projects set ?', [newProject]);
+    await pool.query('INSERT INTO t_Users set ?', [newUser]);
     
-    res.send('message: Project Created...');
+    res.send('message: User Created...');
     //console.log(req.body);
 };
 
-productCtrl.getProject = async (req, res) => {
+productCtrl.getUser = async (req, res) => {
     const { id } = req.params;
-    const projects = await pool.query('SELECT * FROM veyron_arqbid.t_v_projects_active WHERE project_active = true AND id_project = ?;', [id]);
-    res.send(projects);
-    console.log(projects);
+    const Users = await pool.query('SELECT * FROM veyron_arqbid.t_v_Users_active WHERE User_active = true AND id_User = ?;', [id]);
+    res.send(Users);
+    console.log(Users);
 };
 
-productCtrl.editProject = async(req, res) => {
+productCtrl.editUser = async(req, res) => {
     const { id } = req.params;
 
     const {
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
+        id_User_type,
+        id_User_client,
+        id_User_contractor,
+        User_name,
+        User_registration,
+        User_start,
+        User_end,
+        User_code,
+        User_manager,
+        User_details,
+        User_active,
+        User_status,
+        User_budget,
         client_name,
-        project_location,
+        User_location,
         advance_payment,
         contractor_name,
-        project_area,
-        project_type_d} = req.body;
+        User_area,
+        User_type_d} = req.body;
     
-    const editedProject = {                 
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
+    const editedUser = {                 
+        id_User_type,
+        id_User_client,
+        id_User_contractor,
+        User_name,
+        User_registration,
+        User_start,
+        User_end,
+        User_code,
+        User_manager,
+        User_details,
+        User_active,
+        User_status,
+        User_budget,
         client_name,
-        project_location,
+        User_location,
         advance_payment,
         contractor_name,
-        project_area,
-        project_type_d          
+        User_area,
+        User_type_d          
     };
 
-    await pool.query('UPDATE `veyron_arqbid`.`t_projects` SET ? WHERE `id_project` = ?;', [editedProject, id]);
+    await pool.query('UPDATE `veyron_arqbid`.`t_Users` SET ? WHERE `id_User` = ?;', [editedUser, id]);
     
-    res.send('message: Project Updated... ');
+    res.send('message: User Updated... ');
     //console.log(req.body);
 };
 
-productCtrl.deleteProject = async (req, res) => {
+productCtrl.deleteUser = async (req, res) => {
     const { id } = req.params;
-    //DELETE FROM veyron_arqbid.t_projects WHERE id_project = ?;
-    await pool.query("UPDATE `veyron_arqbid`.`t_projects` SET `project_active` = '0' WHERE `id_project` = ?;", [id]);
+    //DELETE FROM veyron_arqbid.t_Users WHERE id_User = ?;
+    await pool.query("UPDATE `veyron_arqbid`.`t_Users` SET `User_active` = '0' WHERE `id_User` = ?;", [id]);
     //console.log('Product Updated; '+id);
 };
 

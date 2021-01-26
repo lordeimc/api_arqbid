@@ -2,21 +2,21 @@ const { Router } = require('express');
 const router = Router();
 
 
-const projectCtrl = require('../controller/projects.controller.js');
+const userCtrl = require('../controller/users.controller.js');
 
-// List Projects
-router.get('/', projectCtrl.getProjects);
+// List Users
+router.get('/', userCtrl.getUsers);
 
-// Create a New Project
-router.post('/', projectCtrl.createProject);
+// Create a New User
+router.post('/', userCtrl.createUser);
 
-// Read Project
-router.get('/:id', projectCtrl.getProject);
+// Read User
+router.get('/:id', userCtrl.getUser);
 
-// Edit Project
-router.put('/:id', projectCtrl.editProject);
+// Edit User
+router.put('/:id', userCtrl.editUser);
 
-// Delete Project
-router.delete('/:id', projectCtrl.deleteProject);
+// Delete User
+router.delete('/:id', userCtrl.deleteUser);
 
 module.exports = router;

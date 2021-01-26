@@ -1,5 +1,5 @@
 const pool = require('../database');
-
+// const { Project } = require('../models/project.model');
 const projectCtrl = {}
 
 projectCtrl.getProjects = async (req, res) => {

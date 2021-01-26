@@ -4,18 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "start": "node build/index.js",
+    "build": "babel src --out-dir build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ivan Muñoz",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "cron": "^1.8.2",
+    "datatables.net-editor-server": "^1.9.6",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.17",
     "twilio": "^3.55.0"
   },
   "devDependencies": {

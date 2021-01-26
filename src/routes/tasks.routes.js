@@ -5,7 +5,17 @@ const router = Router();
 const taskCtrl = require('../controller/tasks.controller.js');
 
 // List Tasks
-router.get('/', taskCtrl.getTasks);
+router.get('/', taskCtrl.getAllTasks);
+
+
+// List Tasks
+router.get('/past', taskCtrl.getPastTasks);
+
+
+// List Tasks
+router.get('/daily', taskCtrl.getDailyTasks);
+
+
 
 // Create a New Task
 router.post('/', taskCtrl.createTask);

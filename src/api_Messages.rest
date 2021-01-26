@@ -13,8 +13,10 @@ Content-Type: application/json
 
   {
 
-    "message_to": "8441225528",
-    "message_body": "21/01/2021 - Actividad vencida de Proyecto /*ARQBID-006-04-20-Barda Perimetral-AACC* /*Detalles:* Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500 m2"
+    //"message_to": "8441225528",
+    "message_to": "+5218443065027",
+    //"message_to": "+5218441868036", // Jorge Garcia   
+    "message_body": "21/01/2021 - Actividad vencida de Proyecto \n*ARQBID-006-04-20-Barda Perimetral-AACC* \n*Detalles:* Ingeniería, diseño y construccion de una barda perimetral con 4 metros de altura en un predio de 1500."
     
   }
 
