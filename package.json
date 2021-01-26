@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
-    "start": "node build/index.js"
+    "start": "node build/index.js",
+    "build": "babel src --out-dir build"
   },
   "keywords": [],
   "author": "Ivan Muñoz",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    
     "datatables.net-editor-server": "^1.9.6",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
@@ -22,6 +22,10 @@
     "twilio": "^3.55.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "nodemon": "^2.0.7"
   }
 }
