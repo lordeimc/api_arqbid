@@ -6,7 +6,7 @@ module.exports = {
         database: 'veyron_arqbid', 
         port:17536
     },
-    database_local : {
+    database_remote1 : {
         host: 'localhost',
         user:'root',
         password:'password',

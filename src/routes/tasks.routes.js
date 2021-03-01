@@ -11,10 +11,15 @@ router.get('/', taskCtrl.getAllTasks);
 // List Tasks
 router.get('/past', taskCtrl.getPastTasks);
 
+// Read Past Task By User
+router.get('/past/:id', taskCtrl.getPastTaskByUser);
 
-// List Tasks
+
+// List Daily Tasks
 router.get('/daily', taskCtrl.getDailyTasks);
 
+// Read Daily Tasks by User
+router.get('/daily/:id', taskCtrl.getDailyTaskByUser);
 
 
 // Create a New Task

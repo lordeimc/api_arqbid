@@ -52,7 +52,11 @@ productCtrl.createUser = async (req, res) => {
     User_area,
     User_type_d
   };
-  await pool.query('INSERT INTO t_Users set ?', [newUser]);
+  await pool.query('INSERT INTO t_Users set ?', [newUser]).then(function (result) {
+    sendResponse(res, "User inserted", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
   res.send('message: User Created...'); //console.log(req.body);
 };
 
@@ -111,8 +115,11 @@ productCtrl.editUser = async (req, res) => {
     User_area,
     User_type_d
   };
-  await pool.query('UPDATE `veyron_arqbid`.`t_Users` SET ? WHERE `id_User` = ?;', [editedUser, id]);
-  res.send('message: User Updated... '); //console.log(req.body);
+  await pool.query('UPDATE `veyron_arqbid`.`t_Users` SET ? WHERE `id_User` = ?;', [editedUser, id]).then(function (result) {
+    sendResponse(res, "User Updated", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
 };
 
 productCtrl.deleteUser = async (req, res) => {
@@ -120,7 +127,20 @@ productCtrl.deleteUser = async (req, res) => {
     id
   } = req.params; //DELETE FROM veyron_arqbid.t_Users WHERE id_User = ?;
 
-  await pool.query("UPDATE `veyron_arqbid`.`t_Users` SET `User_active` = '0' WHERE `id_User` = ?;", [id]); //console.log('Product Updated; '+id);
+  await pool.query("UPDATE `veyron_arqbid`.`t_Users` SET `User_active` = '0' WHERE `id_User` = ?;", [id]).then(function (result) {
+    sendResponse(res, "User Deleted", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
 };
+
+function sendResponse(res, action, tid, error) {
+  if (action == "error") console.log(error);
+  var result = {
+    action: action
+  };
+  if (tid !== undefined && tid !== null) result.tid = tid;
+  res.send(result);
+}
 
 module.exports = productCtrl;

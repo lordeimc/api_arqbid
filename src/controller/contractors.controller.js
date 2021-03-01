@@ -1,128 +1,141 @@
 const pool = require('../database');
 
-const productCtrl = {}
+const contractorCtrl = {}
 
-productCtrl.getProjects = async (req, res) => {
-    const projects = await pool.query('SELECT * FROM veyron_arqbid.t_v_projects_active WHERE project_active = true;');
-    res.send(projects);
-    console.log(projects);
+contractorCtrl.getContractors = async (req, res) => {
+    const Contractors = await pool.query('SELECT * FROM veyron_arqbid.t_contractor WHERE contractor_active = true AND id_contractor_type = 2;');
+    res.send(Contractors);
+    console.log(Contractors);
 };
 
-productCtrl.createProject = async(req, res) => {
+contractorCtrl.createContractor = async(req, res) => {
     const {
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
-        client_name,
-        project_location,
-        advance_payment,
+        id_contractor,
+        id_contractor_type=2,
         contractor_name,
-        project_area,
-        project_type_d} = req.body;
+        contractor_legal_name,
+        contractor_charge,
+        contractor_phone_c,
+        contractor_street,
+        contractor_colonia,
+        contractor_city,
+        contractor_State,
+        contractor_email,
+        contractor_phone,
+        contractor_location,
+        contractor_provider,
+        contractor_active,
+        contractor_website,
+        created_at,
+        updated_at} = req.body;
     
-    const newProject = {                 
-        id_project:null,
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
-        client_name,
-        project_location,
-        advance_payment,
+    const newContractor = {                 
+        id_contractor:null,
+        id_contractor_type:2,
         contractor_name,
-        project_area,
-        project_type_d          
+        contractor_legal_name,
+        contractor_charge,
+        contractor_phone_c,
+        contractor_street,
+        contractor_colonia,
+        contractor_city,
+        contractor_State,
+        contractor_email,
+        contractor_phone,
+        contractor_location,
+        contractor_provider,
+        contractor_active:1,
+        contractor_website,
+        created_at:Date,
+        updated_at:Date          
     };
 
-    await pool.query('INSERT INTO t_projects set ?', [newProject]);
-    
-    res.send('message: Project Created...');
-    //console.log(req.body);
+    await pool.query('INSERT INTO `veyron_arqbid`.`t_contractor` set ?', [newContractor])
+    .then (function (result) {
+        sendResponse(res, "Contractor inserted", result.insertId);
+      })
+      .catch(function(error) {
+        sendResponse(res, "error", null, error); 
+      });
 };
 
-productCtrl.getProject = async (req, res) => {
+contractorCtrl.getContractor = async (req, res) => {
     const { id } = req.params;
-    const projects = await pool.query('SELECT * FROM veyron_arqbid.t_v_projects_active WHERE project_active = true AND id_project = ?;', [id]);
-    res.send(projects);
-    console.log(projects);
+    const Contractors = await pool.query('SELECT * FROM veyron_arqbid.t_contractor WHERE id_Contractor = ?;', [id]);
+    res.send(Contractors);
+    console.log(Contractors);
 };
 
-productCtrl.editProject = async(req, res) => {
+contractorCtrl.editContractor = async(req, res) => {
     const { id } = req.params;
 
     const {
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
-        client_name,
-        project_location,
-        advance_payment,
+        id_contractor_type,
         contractor_name,
-        project_area,
-        project_type_d} = req.body;
+        contractor_legal_name,
+        contractor_charge,
+        contractor_phone_c,
+        contractor_street,
+        contractor_colonia,
+        contractor_city,
+        contractor_State,
+        contractor_email,
+        contractor_phone,
+        contractor_location,
+        contractor_provider,
+        contractor_website
+        } = req.body;
     
-    const editedProject = {                 
-        id_project_type,
-        id_project_client,
-        id_project_contractor,
-        project_name,
-        project_registration,
-        project_start,
-        project_end,
-        project_code,
-        project_manager,
-        project_details,
-        project_active,
-        project_status,
-        project_budget,
-        client_name,
-        project_location,
-        advance_payment,
+    const editedContractor = {                 
+        id_contractor_type:2,
         contractor_name,
-        project_area,
-        project_type_d          
+        contractor_legal_name,
+        contractor_charge,
+        contractor_phone_c,
+        contractor_street,
+        contractor_colonia,
+        contractor_city,
+        contractor_State,
+        contractor_email,
+        contractor_phone,
+        contractor_location,
+        contractor_provider,
+        contractor_website       
     };
 
-    await pool.query('UPDATE `veyron_arqbid`.`t_projects` SET ? WHERE `id_project` = ?;', [editedProject, id]);
-    
-    res.send('message: Project Updated... ');
-    //console.log(req.body);
+    const Contractors = await pool.query("UPDATE `veyron_arqbid`.`t_contractor` SET ? WHERE id_Contractor = ?;", [editedContractor, id])
+    .then (function (result) {
+        sendResponse(res, "Contractor Updated", result.insertId);
+      })
+      .catch(function(error) {
+        sendResponse(res, "error", null, error); 
+      });
 };
 
-productCtrl.deleteProject = async (req, res) => {
+contractorCtrl.deleteContractor = async (req, res) => {
     const { id } = req.params;
-    //DELETE FROM veyron_arqbid.t_projects WHERE id_project = ?;
-    await pool.query("UPDATE `veyron_arqbid`.`t_projects` SET `project_active` = '0' WHERE `id_project` = ?;", [id]);
-    //console.log('Product Updated; '+id);
+    //DELETE FROM veyron_arqbid.t_Contractors WHERE id_Contractor = ?;
+    const Contractors = await pool.query("UPDATE veyron_arqbid.t_contractor SET contractor_active = '0' WHERE id_Contractor = ?;", [id])
+    .then (function (result) {
+      sendResponse(res, "Contractor Deleted", result.insertId);
+    })
+    .catch(function(error) {
+      sendResponse(res, "error", null, error); 
+    });
 };
 
-module.exports =  productCtrl;
+function sendResponse(res, action, tid, error) {
+ 
+    if (action == "error")
+      console.log(error);
+   
+    var result = {
+      action: action
+    };
+    if (tid !== undefined && tid !== null)
+      result.tid = tid;
+   
+    res.send(result);
+  }
+
+module.exports =  contractorCtrl;

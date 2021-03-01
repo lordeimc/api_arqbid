@@ -2,21 +2,21 @@ const { Router } = require('express');
 const router = Router();
 
 
-const projectCtrl = require('../controller/projects.controller.js');
+const contractorCtrl = require('../controller/contractors.controller.js');
 
-// List Projects
-router.get('/', projectCtrl.getProjects);
+// List Contractors
+router.get('/', contractorCtrl.getContractors);
 
-// Create a New Project
-router.post('/', projectCtrl.createProject);
+// Create a New Contractor
+router.post('/', contractorCtrl.createContractor);
 
-// Read Project
-router.get('/:id', projectCtrl.getProject);
+// Read Contractor
+router.get('/:id', contractorCtrl.getContractor);
 
-// Edit Project
-router.put('/:id', projectCtrl.editProject);
+// Edit Contractor
+router.put('/:id', contractorCtrl.editContractor);
 
-// Delete Project
-router.delete('/:id', projectCtrl.deleteProject);
+// Delete Contractor
+router.delete('/:id', contractorCtrl.deleteContractor);
 
 module.exports = router;

@@ -1,0 +1,53 @@
+<mxfile host="65bd71144e" modified="2021-02-03T20:19:36.030Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="13.10.0" etag="hYspultrRNqQc6gshJoO" type="embed">
+    <diagram id="C_KmDGBWTzUpo4xNSDNM" name="Page-1">
+        <mxGraphModel dx="546" dy="546" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="40" width="220" height="345" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Email address" style="fillColor=none;strokeColor=none;align=left;spacing=20;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry width="220" height="40" relative="1" as="geometry">
+                        <mxPoint y="10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="email@example.com" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" vertex="1" parent="2">
+                    <mxGeometry width="180" height="30" relative="1" as="geometry">
+                        <mxPoint x="20" y="50" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="Password" style="fillColor=none;strokeColor=none;align=left;spacing=20;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry width="220" height="40" relative="1" as="geometry">
+                        <mxPoint y="90" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="Password" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" vertex="1" parent="2">
+                    <mxGeometry width="180" height="30" relative="1" as="geometry">
+                        <mxPoint x="20" y="130" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="Recuerdame" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=2;fillColor=#EDEDED;strokeColor=#999999;align=left;fontSize=14;fontColor=#000000;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;spacingLeft=5;spacingTop=-2;gradientColor=#DEDEDE;" vertex="1" parent="2">
+                    <mxGeometry width="10" height="10" relative="1" as="geometry">
+                        <mxPoint x="20" y="180" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="Login" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=#0085FC;strokeColor=none;align=center;fontSize=14;fontColor=#FFFFFF;" vertex="1" parent="2">
+                    <mxGeometry width="70" height="40" relative="1" as="geometry">
+                        <mxPoint x="20" y="210" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="" style="shape=line;strokeColor=#999999;perimeter=none;resizeWidth=1;" vertex="1" parent="2">
+                    <mxGeometry width="220" height="10" relative="1" as="geometry">
+                        <mxPoint y="260" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="New around here? Sign up&lt;br&gt;&lt;br&gt;Forgot password?" style="html=1;fillColor=none;strokeColor=none;align=left;spacing=20;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry width="220" height="60" relative="1" as="geometry">
+                        <mxPoint y="275" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

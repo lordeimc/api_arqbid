@@ -4,16 +4,16 @@ const {
 
 const router = Router();
 
-const projectCtrl = require('../controller/projects.controller.js'); // List Projects
+const contractorCtrl = require('../controller/contractors.controller.js'); // List Contractors
 
 
-router.get('/', projectCtrl.getProjects); // Create a New Project
+router.get('/', contractorCtrl.getContractors); // Create a New Contractor
 
-router.post('/', projectCtrl.createProject); // Read Project
+router.post('/', contractorCtrl.createContractor); // Read Contractor
 
-router.get('/:id', projectCtrl.getProject); // Edit Project
+router.get('/:id', contractorCtrl.getContractor); // Edit Contractor
 
-router.put('/:id', projectCtrl.editProject); // Delete Project
+router.put('/:id', contractorCtrl.editContractor); // Delete Contractor
 
-router.delete('/:id', projectCtrl.deleteProject);
+router.delete('/:id', contractorCtrl.deleteContractor);
 module.exports = router;

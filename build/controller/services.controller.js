@@ -10,49 +10,24 @@ serviceCtrl.getServices = async (req, res) => {
 
 serviceCtrl.createService = async (req, res) => {
   const {
-    id_Service_type,
-    id_Service_client,
-    id_Service_contractor,
-    Service_name,
-    Service_registration,
-    Service_start,
-    Service_end,
-    Service_code,
-    Service_manager,
-    Service_details,
-    Service_active,
-    Service_status,
-    Service_budget,
-    client_name,
-    Service_location,
-    advance_payment,
-    contractor_name,
-    Service_area,
-    Service_type_d
+    id,
+    name,
+    switch_no,
+    img_url,
+    active
   } = req.body;
   const newService = {
-    id_Service: null,
-    id_Service_type,
-    id_Service_client,
-    id_Service_contractor,
-    Service_name,
-    Service_registration,
-    Service_start,
-    Service_end,
-    Service_code,
-    Service_manager,
-    Service_details,
-    Service_active,
-    Service_status,
-    Service_budget,
-    client_name,
-    Service_location,
-    advance_payment,
-    contractor_name,
-    Service_area,
-    Service_type_d
+    id: null,
+    name,
+    switch_no,
+    img_url,
+    active
   };
-  await pool.query('INSERT INTO t_Services set ?', [newService]);
+  await pool.query('INSERT INTO veyron_arqbid.t_services SET ?', [newService]).then(function (result) {
+    sendResponse(res, "Service inserted", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
   res.send('message: Service Created...'); //console.log(req.body);
 };
 
@@ -60,7 +35,7 @@ serviceCtrl.getService = async (req, res) => {
   const {
     id
   } = req.params;
-  const Services = await pool.query('SELECT * FROM veyron_arqbid.t_v_Services_active WHERE Service_active = true AND id_Service = ?;', [id]);
+  const Services = await pool.query('SELECT * FROM veyron_arqbid.t_v_services_active WHERE active = true AND id = ?;', [id]);
   res.send(Services);
   console.log(Services);
 };
@@ -70,49 +45,22 @@ serviceCtrl.editService = async (req, res) => {
     id
   } = req.params;
   const {
-    id_Service_type,
-    id_Service_client,
-    id_Service_contractor,
-    Service_name,
-    Service_registration,
-    Service_start,
-    Service_end,
-    Service_code,
-    Service_manager,
-    Service_details,
-    Service_active,
-    Service_status,
-    Service_budget,
-    client_name,
-    Service_location,
-    advance_payment,
-    contractor_name,
-    Service_area,
-    Service_type_d
+    name,
+    switch_no,
+    img_url,
+    active
   } = req.body;
   const editedService = {
-    id_Service_type,
-    id_Service_client,
-    id_Service_contractor,
-    Service_name,
-    Service_registration,
-    Service_start,
-    Service_end,
-    Service_code,
-    Service_manager,
-    Service_details,
-    Service_active,
-    Service_status,
-    Service_budget,
-    client_name,
-    Service_location,
-    advance_payment,
-    contractor_name,
-    Service_area,
-    Service_type_d
+    name,
+    switch_no,
+    img_url,
+    active
   };
-  await pool.query('UPDATE `veyron_arqbid`.`t_Services` SET ? WHERE `id_Service` = ?;', [editedService, id]);
-  res.send('message: Service Updated... '); //console.log(req.body);
+  await pool.query('UPDATE veyron_arqbid.t_services SET ? WHERE `id` = ?;', [editedService, id]).then(function (result) {
+    sendResponse(res, "Service Updated", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
 };
 
 serviceCtrl.deleteService = async (req, res) => {
@@ -120,7 +68,20 @@ serviceCtrl.deleteService = async (req, res) => {
     id
   } = req.params; //DELETE FROM veyron_arqbid.t_Services WHERE id_Service = ?;
 
-  await pool.query("UPDATE `veyron_arqbid`.`t_Services` SET `Service_active` = '0' WHERE `id_Service` = ?;", [id]); //console.log('Product Updated; '+id);
+  await pool.query("UPDATE `veyron_arqbid`.`t_Services` SET `Service_active` = '0' WHERE `id_Service` = ?;", [id]).then(function (result) {
+    sendResponse(res, "Service Deleted", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
 };
+
+function sendResponse(res, action, tid, error) {
+  if (action == "error") console.log(error);
+  var result = {
+    action: action
+  };
+  if (tid !== undefined && tid !== null) result.tid = tid;
+  res.send(result);
+}
 
 module.exports = serviceCtrl;

@@ -53,7 +53,11 @@ projectCtrl.createProject = async (req, res) => {
     project_area,
     project_type_d
   };
-  await pool.query('INSERT INTO t_projects set ?', [newProject]);
+  await pool.query('INSERT INTO t_projects set ?', [newProject]).then(function (result) {
+    sendResponse(res, "Project inserted", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
   res.send('message: Project Created...'); //console.log(req.body);
 };
 
@@ -112,8 +116,11 @@ projectCtrl.editProject = async (req, res) => {
     project_area,
     project_type_d
   };
-  await pool.query('UPDATE `veyron_arqbid`.`t_projects` SET ? WHERE `id_project` = ?;', [editedProject, id]);
-  res.send('message: Project Updated... '); //console.log(req.body);
+  await pool.query('UPDATE `veyron_arqbid`.`t_projects` SET ? WHERE `id_project` = ?;', [editedProject, id]).then(function (result) {
+    sendResponse(res, "Project Updated", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
 };
 
 projectCtrl.deleteProject = async (req, res) => {
@@ -121,7 +128,20 @@ projectCtrl.deleteProject = async (req, res) => {
     id
   } = req.params; //DELETE FROM veyron_arqbid.t_projects WHERE id_project = ?;
 
-  await pool.query("UPDATE `veyron_arqbid`.`t_projects` SET `project_active` = '0' WHERE `id_project` = ?;", [id]); //console.log('Product Updated; '+id);
+  await pool.query("UPDATE `veyron_arqbid`.`t_projects` SET `project_active` = '0' WHERE `id_project` = ?;", [id]).then(function (result) {
+    sendResponse(res, "Project Deleted", result.insertId);
+  }).catch(function (error) {
+    sendResponse(res, "error", null, error);
+  });
 };
+
+function sendResponse(res, action, tid, error) {
+  if (action == "error") console.log(error);
+  var result = {
+    action: action
+  };
+  if (tid !== undefined && tid !== null) result.tid = tid;
+  res.send(result);
+}
 
 module.exports = projectCtrl;

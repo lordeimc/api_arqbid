@@ -27,7 +27,7 @@ messageCtrl.createService = async (req, res) => {
     body: message_body,
     from: 'whatsapp:+14155238886',
     to: 'whatsapp:' + message_to
-  }).then(message => console.log(message.sid + '\n' + message_body)).done();
+  }).then(message => res.send(message.sid + '\n' + message_body)).done(console.log("Mensaje Enviado: (" + message_to + ')\n' + message_body + '\n'));
 };
 
 messageCtrl.createEmail = async (req, res) => {
@@ -73,5 +73,14 @@ messageCtrl.createEmail = async (req, res) => {
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info)); // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }; //this.messageCtrl.createEmail().catch(console.error);
 
+
+function sendResponse(res, action, tid, error) {
+  if (action == "error") console.log(error);
+  var result = {
+    action: action
+  };
+  if (tid !== undefined && tid !== null) result.tid = tid;
+  res.send(result);
+}
 
 module.exports = messageCtrl;

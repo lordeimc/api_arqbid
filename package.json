@@ -12,12 +12,23 @@
   "author": "Ivan Muñoz",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
     "cors": "^2.8.5",
     "datatables.net-editor-server": "^1.9.6",
+    "date-format-lite": "^17.7.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "log-timestamp": "^0.3.0",
+    "mongoose": "^5.11.13",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "node-cron": "^2.0.3",
     "nodemailer": "^6.4.17",
+    "promise-mysql": "^5.0.2",
+    "system-sleep": "^1.3.7",
     "twilio": "^3.55.0"
   },
   "devDependencies": {
