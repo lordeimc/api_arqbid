@@ -4,7 +4,7 @@ const {
 
 const router = Router();
 
-const fileCtrl = require('../controller/Files.controller.js'); // List Files
+const fileCtrl = require('../controller/files.controller.js'); // List Files
 
 
 router.get('/', fileCtrl.getAllFiles); // Create a New File
